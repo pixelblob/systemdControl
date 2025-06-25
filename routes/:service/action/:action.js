@@ -9,7 +9,7 @@ router.get('/', async (req, res) => {
     var { service, action } = req.params
     console.log(service, action)
     if (!actions.includes(action)) return res.status(400).end()
-    exec(`sudo systemctl ${action} ${service}`, (err, stdout, stderr) => {
+    exec(`systemctl ${action} ${service}`, (err, stdout, stderr) => {
         if (err) {
             return res.status(400).end(err.toString())
         }

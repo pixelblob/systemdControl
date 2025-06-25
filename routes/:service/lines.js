@@ -8,7 +8,7 @@ module.exports = router;
 router.get('/', async (req, res) => {
     var { service } = req.params
     console.log(service)
-    exec(`sudo journalctl -u ${service} -o json -n 300`, (err, stdout, stderr) => {
+    exec(`journalctl -u ${service} -o json -n 300`, (err, stdout, stderr) => {
         if (err) {
             console.error(err);
             return;

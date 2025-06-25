@@ -11,7 +11,7 @@ router.get('/', async (req, res) => {
     var { cursor } = req.query
     console.log(cursor)
     //sudo journalctl -n 5 -u nodejsProjects@imageScraperDanbooru --reverse --cursor ''
-    exec(`sudo journalctl -u ${service} -o json -n 5 --reverse --cursor '${cursor}'`, (err, stdout, stderr) => {
+    exec(`journalctl -u ${service} -o json -n 5 --reverse --cursor '${cursor}'`, (err, stdout, stderr) => {
         if (err) {
             console.error(err);
             return res.status(400).json({err: stderr.toString().trim()});
