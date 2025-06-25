@@ -10,31 +10,6 @@ const { registerWatchRoutes } = require("pixelroutemagic");
 const { existsSync, fstat } = require("node:fs");
 registerWatchRoutes("./routes", app)
 
-/* let setCache = function (req, res, next) {
-  // here you can define period in second, this one is 5 minutes
-  const period = 60 * 60 * 24
-
-  // you only want to cache for GET requests
-  if (req.method == 'GET') {
-    var contype = req.url
-    console.log(contype)
-    if (contype.endsWith(".css") || contype == "/themes.json") {
-      res.set('Cache-control', `public, max-age=${period}`)
-    }
-    //res.set('Cache-control', `public, max-age=${period}`)
-  } else {
-    // for the other requests set strict no caching parameters
-    //res.set('Cache-control', `no-store`)
-  }
-
-  // remember to call next() to pass on the request
-  next()
-} */
-
-// now call the new middleware function in your app
-
-/* app.use(setCache) */
-
 app.use(express.static('public', {maxAge: "1d"}))
 
 io.on('connection', async (socket) => {
@@ -59,8 +34,6 @@ function acceptLine(json) {
 
   if (unit == "nodejsProjects@systemdControl.service") return
 
-  //console.log(json.MESSAGE)
-  ///console.log(unit)
 
   if (!unit) return
 
@@ -68,13 +41,8 @@ function acceptLine(json) {
 
   io.sockets.emit("journal", json)
 
-  // console.log(json.MESSAGE)
-
   if (!JOB_TYPE) return
-  //console.log(json)
-  //console.log(MESSAGE)
-  //console.log(JOB_RESULT)
-  //console.log("EMIT!")
+
   io.sockets.emit("serviceUpdate", {
     service: unit,
     JOB_TYPE,
@@ -144,10 +112,6 @@ async function getServiceList() {
   units = services
   services = services.filter(e => !e.unit.endsWith("@.service"))
 
-  /* for (const service of services) {
-    console.log(service)
-  } */
-
   return services
 }
 
@@ -186,16 +150,3 @@ chokidar.watch('/etc/systemd/system/multi-user.target.wants/', { ignoreInitial: 
   })
   }
 });
-
-/* chokidar.watch('/etc/systemd/system/', { ignoreInitial: true }).on('all', async (event, path) => {
-  if (path == "/etc/systemd/system/samba-ad-dc.service") return
-  console.log(path, "WAS CHANGED")
-  var startTime = new Date().getTime()
-  let services = await getServiceList()
-  console.log((new Date().getTime() - startTime)/1000)
-  io.sockets.emit("services", services)
-}); */
-
-module.exports = {
-
-}
