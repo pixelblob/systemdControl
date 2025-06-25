@@ -1,0 +1,92 @@
+#topConsolePanel {
+  background-color: var(--mainColor);
+  min-height: 50px;
+  /* position: fixed; */
+  width: 100%;
+  box-shadow: 6px 0px 20px 4px #0000007d;
+  padding: 5px;
+  box-sizing: border-box;
+  border-bottom: 1px solid var(--globalborder);
+  display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#serviceName {
+  display: block;
+  text-transform: capitalize;
+}
+
+#consoleControls #actionButtons .button {
+  display: inline-block;
+}
+
+#consoleControls #actionButtons {
+  text-align: center;
+  font-size: 1.5em;
+  display: flex;
+    justify-content: space-around;
+}
+
+#serviceDescription {
+  color: #4c2d55;
+}
+
+#serviceInfo {
+  text-align: center;
+}
+
+
+
+#bottomConsolePanel {
+  background-color: var(--mainColor);
+  /* position: fixed; */
+  width: 100%;
+  box-shadow: 6px 0px 20px 4px #0000007d;
+  padding: 5px;
+  box-sizing: border-box;
+  border-bottom: 1px solid var(--globalborder);
+  display: none;
+}
+
+#consoleContainer {
+  display: inline-flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+
+#consoleLineContainer {
+  height: 100%;
+}
+
+@media only screen and (max-width: 600px) {
+  #bottomConsolePanel {
+    display: initial;
+  }
+}
+
+#buttonPanelLeft {
+  margin-left: 10px;
+}
+
+#buttonPanelRight {
+  margin-right: 10px;
+}
+
+
+body:has(.active[data-active="active"]) #consoleControls #start {
+  display: none;
+}
+
+body:not(:has(.active[data-active="active"])) #consoleControls #stop,
+body:not(:has(.active[data-active="active"])) #consoleControls #restart {
+  display: none;
+}
+body:has(.active[data-state="enabled"]) #consoleControls #enable,
+body:has(.active[data-state="generated"]) #consoleControls #enable {
+  display: none;
+}
+body:has(.active[data-state="disabled"]) #consoleControls #disable,
+body:has(.active[data-state="generated"]) #consoleControls #disable {
+  display: none;
+}

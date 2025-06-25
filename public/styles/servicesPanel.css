@@ -1,0 +1,123 @@
+#searchBar {
+    width: 100%;
+    background-color: blanchedalmond;
+    height: 50px;
+    background-color: var(--mainColor);
+    border-style: hidden solid solid hidden;
+    border-width: 1px;
+    border-color: var(--globalborder);
+    box-sizing: border-box;
+}
+
+#searchBar:has(input:focus) {
+    border-color: white !important;
+    border-style: solid !important;
+}
+
+#leftPane {
+    height: 100%;
+}
+
+@media only screen and (max-width: 600px) {
+    #leftPane {
+        width: 100% !important;
+    }
+
+    body[data-extended="true"] #consoleContainer {
+        width: 100% !important;
+    }
+
+    body[data-extended="false"] #consoleContainer {
+        width: 0% !important;
+    }
+
+    body[data-extended="true"] #leftPane {
+        width: 0% !important;
+    }
+
+    [data-scroll="true"] {
+        --scrollDist: 0 !important;
+    }
+
+    #scrollDownWrapper {
+        display: none !important;
+    }
+
+}
+
+#serviceContainerScroller {
+    height: calc(100% - 50px);
+    overflow-y: auto;
+    box-sizing: border-box;
+    /* border-right: solid; */
+    box-shadow: 1px 0px 20px 4px #0000007d;
+    position: relative;
+    border-right: 1px solid var(--globalborder);
+}
+
+#searchBar>input {
+    font-size: 17px;
+    padding: 6px;
+    border: none;
+    width: calc(100% - 50px);
+    background-color: var(--mainColor);
+    color: white;
+    box-sizing: border-box;
+    height: 100%;
+}
+
+
+#searchBar>input:focus {
+    outline: none;
+}
+
+#noresultssearch {
+    display: none;
+    position: absolute;
+}
+
+#serviceContainer > #service:first-child {
+    margin-top: 15px;
+}
+
+#serviceContainer > #service:last-child {
+    margin-bottom: 15px;
+}
+
+#serviceContainer.filtering > #service {
+    background-color: var(--accentColor3);
+}
+
+#newactivity {
+    display: none;
+    color: gold;
+    float: left;
+    margin-left: 5px;
+}
+
+#serviceContainer>#service {
+    display: inline-block;
+    background-color: rgb(34, 51, 56);
+  
+    min-width: calc(100% - 10px);
+    font-size: initial;
+    text-align: center;
+    border-radius: 15px;
+    padding: 5px;
+    margin: 5px;
+    box-sizing: border-box;
+    /* transition: 0.15s all ease; */
+    user-select: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    overflow: hidden;
+    white-space: nowrap;
+    max-width: calc(100% - 10px);
+    font-size: 0;
+  }
+
+
+  

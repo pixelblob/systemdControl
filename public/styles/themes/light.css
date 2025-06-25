@@ -1,0 +1,16 @@
+:root {
+  --globalborder: #1e1f20;
+  --mainColor: #f3f3f3;
+  --consoleGrey: #ac71bd;
+  --globalText: black;
+
+  --accentColor1: #130912;
+  --accentColor2: #3e1c34;
+  --accentColor3: #602748;
+
+  --startClr: greenyellow;
+  --stopClr: rgb(255, 47, 47);
+  --restartClr: rgb(255, 182, 47);
+  --enableClr: rgb(47, 61, 255);
+  --disableClr: rgb(255, 47, 255);
+}

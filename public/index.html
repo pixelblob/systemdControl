@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+
+<head>
+    <base href="https://pixelboop.net/control/" target="_blank">
+    <link rel="stylesheet" href="styles/themes/base.css">
+    <link rel="stylesheet" id="themestylesheet">
+    <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="styles/consolePanel.css">
+    <link rel="stylesheet" href="styles/servicesPanel.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="./fontawesome-free-6.4.2-web/css/fontawesome.css" rel="stylesheet">
+    <link href="./fontawesome-free-6.4.2-web/css/brands.css" rel="stylesheet">
+    <link href="./fontawesome-free-6.4.2-web/css/solid.css" rel="stylesheet">
+    <script src="theme.js"></script>
+</head>
+
+<body data-textWrap="true" data-scrolled-down="true" data-sorttype="abc">
+    <div id="mainContainer">
+        <div id="leftPane">
+            <div id="searchBar">
+                <input type="text" placeholder="Search.." autofocus id="serviceSearch">
+            </div>
+            <div id="noresultssearch"><span>No Results</span></div>
+            <div id="serviceContainerScroller">
+                <div id="serviceContainer"></div>
+            </div>
+        </div>
+
+        <div id="consoleContainer">
+            <div id="scrollDownWrapper">
+                <div id="scrollDown" onclick="scrollDown()">
+                    <span>Scroll?</span>
+                </div>
+            </div>
+            <div id="topConsolePanel">
+                <div id="buttonPanelLeft">
+                    <div class="btn"><span><i class="fas fa-file-word" onclick="toggleWordWrap()"></i></span></div>
+                </div>
+                
+                <div id="serviceInfo">
+                    <span id="serviceName"></span>
+                    <span id="serviceDescription"></span>
+                </div>
+            
+                <div id="buttonPanelRight">
+                    <div class="btn"><span><i class="fa-solid fa-paintbrush" onclick="cycleTheme()"></i></span></div>
+                </div>
+            </div>
+            <div id="consoleLineContainer"></div>
+            <div id="bottomConsolePanel">
+                <div id="consoleControls">
+                    <div id="actionButtons">
+                        <div class="button" onclick="resetFailedService(currentService)" title="Reset Failed" id="reset"><i class="fas fa-undo"></i></div>
+                        <div class="button" onclick="killService(currentService)" title="Kill" id="kill"><i class="fa-solid fa-skull"></i></div>
+                        <div class="button" onclick="startService(currentService)" title="Start" id="start"><i class="fas fa-power-off"></i></div>
+                        <div class="button" onclick="stopService(currentService)" title="Stop" id="stop"><i class="fas fa-power-off"></i></div>
+                        <div class="button" onclick="restartService(currentService)" title="Restart" id="restart"><i class="fas fa-refresh"></i></div>
+                        <div class="button" onclick="enableService(currentService)" title="Enable" id="enable"><i class="fas fa-toggle-off"></i></div>
+                        <div class="button" onclick="disableService(currentService)" title="Disable" id="disable"><i class="fas fa-toggle-on"></i></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="ejs.min.js"></script>
+    <script src="ansi_up.js"></script>
+    <script src="socket.io.min.js"></script>
+    <script src="js-levenshtein/index.js"></script>
+    <script src="main.js"></script>
+
+</body>
+
+</html>

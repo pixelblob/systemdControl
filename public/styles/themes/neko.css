@@ -1,0 +1,16 @@
+:root {
+  --accentColor1: #420a55;
+  --accentColor2: #b00b69;
+  --accentColor3: #042069;
+
+  --globalborder: #1e1f20;
+  --mainColor: #0f0f0f;
+  --consoleGrey: #0a0a0a;
+
+  --globalText: var(--accentColor2);
+  --consoleLine: var(--accentColor2);
+}
+
+#serviceContainer > #service {
+  background-color: var(--accentColor1) !important;
+}
